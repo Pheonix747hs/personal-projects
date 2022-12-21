@@ -8,7 +8,7 @@ Numpad0 & Numpad1::Send, {Media_Prev}
 !Down::Send, {Volume_Mute}
 Numpad0 & Numpad6::Send, ^{s}
 Numpad0 & Numpad9::Send, ^{r}
-Numpad0 & Numpad2::jplaypause()
+Numpad0 & Numpad2::send, {Media_Play_Pause}
 Numpad0 & Numpad4::playlist("one",minival)
 Numpad0 & Numpad7::playlist("fav", minival)
 ^PgUp::playlist("two", minival)
@@ -20,8 +20,11 @@ Numpad0 & Numpad5::Send, +{Left}
 playlist(cmd, min)
 {
     MouseGetPos, origx, origy, origwin
+    MsgBox, 1, Title, %origwin%
     WinGetClass, origin, A
     ActivateSpotify(origin)
+    MouseGetPos, w, z, spotifywin
+    MsgBox, 1, Title, %spotifywin%
     WinGetActiveStats, winTitle, width, height, winX, winY
     y := height - 70
     Click, right, 30, %y%
@@ -32,10 +35,24 @@ playlist(cmd, min)
         playlistOne()
     else if (cmd = "two")
         playlistTwo()
-    WinMinimize, A
-    Reactivate(origin, origwin, origx, origy, min)
-    Return
+    minimizeifo(origwin , spotifywin)
 }
+minimizeifo(origwin, spotifywin)
+{
+    if (origwin == spotifywin)
+        {
+        MsgBox, 1, set1, set1
+        Return
+        }
+    else if (origwin != spotifywin)
+        {
+        MsgBox, 1, set2, set2
+        WinMinimize, A
+        Reactivate(origin, origwin, origx, origy, min)
+        Return
+        }
+}
+
 playlistFav()
 {
     Send, {Up}{Up}{Up}{Enter}
