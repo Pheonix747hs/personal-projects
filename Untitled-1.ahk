@@ -20,10 +20,8 @@ Numpad0 & Numpad5::Send, +{Left}
 playlist(cmd, min)
 {
     MouseGetPos, origx, origy, origwin
-    MsgBox, 1, Title, %origwin%
     WinGetClass, origin, A
     ActivateSpotify(origin)
-    MouseGetPos, w, z, spotifywin
     MsgBox, 1, Title, %spotifywin%
     WinGetActiveStats, winTitle, width, height, winX, winY
     y := height - 70
@@ -41,12 +39,10 @@ minimizeifo(origwin, spotifywin)
 {
     if (origwin == spotifywin)
         {
-        MsgBox, 1, set1, set1
         Return
         }
     else if (origwin != spotifywin)
         {
-        MsgBox, 1, set2, set2
         WinMinimize, A
         Reactivate(origin, origwin, origx, origy, min)
         Return
