@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\graphics enviroment",
-    "\\graphics enviroment\\ConsoleApplication1",
-    "\\PythonApplication1"
+    "\\graphics enviroment\\ConsoleApplication1"
   ],
-  "SelectedNode": "\\PythonApplication1\\PythonApplication1.py",
+  "SelectedNode": "\\graphics enviroment\\ConsoleApplication1\\ConsoleApplication1.cpp",
   "PreviewInSolutionExplorer": false
 }
