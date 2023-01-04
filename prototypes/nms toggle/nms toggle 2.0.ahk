@@ -5,7 +5,7 @@ SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 rerun:
 flag=1
-Process, Exist, notepad.exe
+Process, Exist, NMS.exe
 If (ErrorLevel = 0)
 {
     flag=0
