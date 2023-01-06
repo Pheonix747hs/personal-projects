@@ -9,12 +9,14 @@ Process, Exist, NMS.exe
 If (ErrorLevel = 0)
 {
     flag=0
+    Suspend, On
     sleep 60000
     goto, rerun
 
 }   
 if flag<>0
 {
+    Suspend, off
     XButton2::nms_boost() 
     LShift::
 	    SEND, {h down}
